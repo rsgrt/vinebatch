@@ -65,4 +65,4 @@ Additional notes:
 ---
 This is a public release. Any future updates/improvements may or may not be available publicly.
 
-NOT FOR SALE AND NOT PROVIDING SUPPORT FOR ISSUES. USE AT YOUR OWN RISK.
+USE AT YOUR OWN RISK.
