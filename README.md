@@ -69,7 +69,7 @@ Additional notes:
 - Multiple pair of KID:KEY supported. Please follow formatting for the file to be fed to script. We assume you know what you're doing and not feeding the script with fake KID:keys. You will get a corrupted file output anyway and the script will crash.
 - Added Checking KID of files before decrypting (only for shaka-packager), you usually don't need that on mp4decrypt.
 - (UPDATED) Script supports muxing of multiple subtitle file. The format is FILENAME.en.srt where 'en' is the language code for English and .srt is the subtitle extension. Only accepting srt, ass, ssa, vtt subtitles. Any other formatting will cause the script to crash.
-  The filename for final video file should be in the filename of the subtitle file. The language code is based off mkvtoolnix, more info: https://gitlab.com/mbunkus/mkvtoolnix/-/wikis/Languages-in-Matroska-and-MKVToolNix
+- The filename for final video file should be in the filename of the subtitle file. The language code is based off mkvtoolnix, more info: https://gitlab.com/mbunkus/mkvtoolnix/-/wikis/Languages-in-Matroska-and-MKVToolNix
 - (NEW) You can now indicate the audio language. The script will read it off the filename you set so if you put 'bunny-1.ja;MPD;KEY' the script will set the audio to Japanese. Again, this is based off mkvtoolnix.
 - Output file should NOT have spaces in file name.
 ---
