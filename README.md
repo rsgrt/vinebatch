@@ -1,5 +1,14 @@
-# vinebatch
-batch-downloader tool for widevine
+
+                ███                      █████                █████             █████
+     r3n@RSG   ░░░                      ░░███       v0.4.4   ░░███             ░░███
+   █████ █████ ████  ████████    ██████  ░███████   ██████   ███████    ██████  ░███████
+  ░░███ ░░███ ░░███ ░░███░░███  ███░░███ ░███░░███ ░░░░░███ ░░░███░    ███░░███ ░███░░███
+   ░███  ░███  ░███  ░███ ░███ ░███████  ░███ ░███  ███████   ░███    ░███ ░░░  ░███ ░███
+   ░░███ ███   ░███  ░███ ░███ ░███░░░   ░███ ░███ ███░░███   ░███ ███░███  ███ ░███ ░███
+    ░░█████    █████ ████ █████░░██████  ████████ ░░████████  ░░█████ ░░██████  ████ █████
+     ░░░░░    ░░░░░ ░░░░ ░░░░░  ░░░░░░  ░░░░░░░░   ░░░░░░░░    ░░░░░   ░░░░░░  ░░░░ ░░░░░
+                        BATCH DOWNLOAD-DECRYPT-MUX PROTECTED STREAMS
+
 
 ---
 This script is for automating the ripping process of protected streams. It's like widevine-dl (https://github.com/WHTJEON/widevine-dl) but the use case is a generic batch downloader.
@@ -19,12 +28,12 @@ Requirements:
 - latest ffmpeg https://www.gyan.dev/ffmpeg/builds/
 ---
 Instructions:
-- Edit the script to put the path of .exe for yt-dlp, aria2c, mp4decrypt, mp4info, mkvmerge, ffmpeg, shaka-packager. Make sure that the actual script is located in a path with no spaces (e.g. D:\vinebatch\vinebatch.py). When editing the script, use double slash (e.g. D:\\ffmpeg\\ffmpeg.exe)
+- Create a binaries folder on where the script is added. Put the .exe for yt-dlp, aria2c, mp4decrypt, mp4info, mkvmerge, ffmpeg, shaka-packager. Make sure that the actual script is located in a path with no spaces (e.g. D:\vinebatch\vinebatch.py). Make sure shaka-packager is renamed to shaka-packager.exe
 - Run from cmd or terminal (wt)
 ```
-usage: vinebatch.py [-h] -of  [-vr] [-ch] [-ar] [-kf] [-sl] [-md] [-s]
+usage: batch-dl.py [-h] -of  [-vr] [-ch] [-ar] [-kf] [-sl] [-md] [-s]
 
-vinebatch v0.4.3 - r3n@RSG generic batch widevine ripper
+vine-batch v0.4.4 - r3n@RSG generic batch widevine ripper
 
 options:
   -h, --help           show this help message and exit
@@ -55,14 +64,16 @@ This script is not smart (it has only few exception handling.. if you can call i
 
 ----
 Additional notes:
-- Temp files will downloaded to 'temp' and will be decrypted there. 'decrypted_mkv' is the final output folder. If needed folder doesn't exist yet, script will create them for you.
+- (UPDATED) Temp files will downloaded to 'temp' and will be decrypted there. 'decrypted_mkv' is the final output folder. If needed folder doesn't exist yet, script will create them for you. If you chose to keep the raws, they will be moved to 'raws' folder.
 - Decryption by default will be done via shaka-packager. You can still use mp4decrypt if you prefer to or if you encounter issues with shaka-packager.
-- Make sure that your temp folder is always empty after you kept encrypted+decrypted raws (move them somewhere else idk).
-- Multiple pair of KID:KEY now supported. Please follow new formatting for the file to be fed to script. We assume you know what you're doing and not feeding the script with fake KID:keys. You will get a corrupted file output anyway and the script will crash.
+- Multiple pair of KID:KEY supported. Please follow formatting for the file to be fed to script. We assume you know what you're doing and not feeding the script with fake KID:keys. You will get a corrupted file output anyway and the script will crash.
 - Added Checking KID of files before decrypting (only for shaka-packager), you usually don't need that on mp4decrypt.
-- Added muxing of single subtitle file that should have the same name as the final file name. (i.e. if you set 'bunnydownload' as filename on the text file to open, you will need to put the 'bunnydownload.srt' on subs folder.
+- (UPDATED) Script supports muxing of multiple subtitle file. The format is FILENAME.en.srt where 'en' is the language code for English and .srt is the subtitle extension. Only accepting srt, ass, ssa, vtt subtitles. Any other formatting will cause the script to crash.
+  The filename for final video file should be in the filename of the subtitle file. The language code is based off mkvtoolnix, more info: https://gitlab.com/mbunkus/mkvtoolnix/-/wikis/Languages-in-Matroska-and-MKVToolNix
+- (NEW) You can now indicate the audio language. The script will read it off the filename you set so if you put 'bunny-1.ja;MPD;KEY' the script will set the audio to Japanese. Again, this is based off mkvtoolnix.
 - Output file should NOT have spaces in file name.
 ---
 This is a public release. Any future updates/improvements may or may not be available publicly.
+The source is there for you to read and improve, do not be stupid.
 
 USE AT YOUR OWN RISK.
