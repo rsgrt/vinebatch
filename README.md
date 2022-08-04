@@ -1,4 +1,4 @@
-
+```
                 ███                      █████                █████             █████
      r3n@RSG   ░░░                      ░░███       v0.4.4   ░░███             ░░███
    █████ █████ ████  ████████    ██████  ░███████   ██████   ███████    ██████  ░███████
@@ -8,7 +8,7 @@
     ░░█████    █████ ████ █████░░██████  ████████ ░░████████  ░░█████ ░░██████  ████ █████
      ░░░░░    ░░░░░ ░░░░ ░░░░░  ░░░░░░  ░░░░░░░░   ░░░░░░░░    ░░░░░   ░░░░░░  ░░░░ ░░░░░
                         BATCH DOWNLOAD-DECRYPT-MUX PROTECTED STREAMS
-
+```
 
 ---
 This script is for automating the ripping process of protected streams. It's like widevine-dl (https://github.com/WHTJEON/widevine-dl) but the use case is a generic batch downloader.
